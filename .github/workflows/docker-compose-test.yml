@@ -20,22 +20,6 @@ jobs:
           docker-compose -f docker-compose.yml up -d
           docker-compose -f docker-compose.yml ps
           sleep 30
-      # - name: Run tests
-      #   run: |
-      #     docker-compose -f docker-compose.yml run --rm nodejs sh -c "curl -sSf http://nodejs:3000"
-      # - name: Get Node.js service output
-      #   id: get_nodejs_output
-      #   run: |
-      #     NODEJS_OUTPUT=$(docker-compose -f docker-compose.yml logs nodejs)
-      #     echo "::set-output name=nodejs_output::$NODEJS_OUTPUT"
-      # - name: Validate Node.js service output
-      #   run: |
-      #     if [[ "${{ steps.get_nodejs_output.outputs.nodejs_output }}" == *"Hello, World!"* ]]; then
-      #       echo "Node.js service output is correct."
-      #     else
-      #       echo "ERROR: Node.js service output is incorrect."
-      #       exit 1
-      #     fi
       - name: Test Node.js service with curl
         run: |
           SERVICE_URL="http://localhost:3000"
